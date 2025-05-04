@@ -1,7 +1,7 @@
 "use client"
 
-import { useRef, useMemo, useEffect } from "react"
-import type * as THREE from "three"
+import { useRef, useMemo } from "react"
+import * as THREE from "three"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { Environment, Sphere, MeshDistortMaterial } from "@react-three/drei"
 
@@ -32,16 +32,19 @@ function AnimatedSphere() {
 function FloatingParticles() {
   const particlesRef = useRef<THREE.Points>(null)
 
-  // Generate positions once using useMemo
   const positionsArray = useMemo(() => {
-    const array = new Float32Array(500 * 3)
+    const arr = new Float32Array(500 * 3)
     for (let i = 0; i < 500; i++) {
-      array[i * 3 + 0] = (Math.random() - 0.5) * 10
-      array[i * 3 + 1] = (Math.random() - 0.5) * 10
-      array[i * 3 + 2] = (Math.random() - 0.5) * 10
+      arr[i * 3 + 0] = (Math.random() - 0.5) * 10
+      arr[i * 3 + 1] = (Math.random() - 0.5) * 10
+      arr[i * 3 + 2] = (Math.random() - 0.5) * 10
     }
-    return array
+    return arr
   }, [])
+
+  const bufferAttribute = useMemo(() => {
+    return new THREE.BufferAttribute(positionsArray, 3)
+  }, [positionsArray])
 
   useFrame((state) => {
     if (particlesRef.current) {
@@ -53,12 +56,7 @@ function FloatingParticles() {
   return (
     <points ref={particlesRef}>
       <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          count={500}
-          array={positionsArray}
-          itemSize={3}
-        />
+        <primitive attach="attributes-position" object={bufferAttribute} />
       </bufferGeometry>
       <pointsMaterial
         size={0.05}
