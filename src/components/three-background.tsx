@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useEffect } from "react"
+import { useRef, useMemo, useEffect } from "react"
 import type * as THREE from "three"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { Environment, Sphere, MeshDistortMaterial } from "@react-three/drei"
@@ -17,7 +17,14 @@ function AnimatedSphere() {
 
   return (
     <Sphere args={[1, 100, 100]} ref={meshRef} position={[0, 0, 0]} scale={2}>
-      <MeshDistortMaterial color="#0f766e" attach="material" distort={0.5} speed={2} roughness={0.2} metalness={0.8} />
+      <MeshDistortMaterial
+        color="#0f766e"
+        attach="material"
+        distort={0.5}
+        speed={2}
+        roughness={0.2}
+        metalness={0.8}
+      />
     </Sphere>
   )
 }
@@ -25,22 +32,15 @@ function AnimatedSphere() {
 function FloatingParticles() {
   const particlesRef = useRef<THREE.Points>(null)
 
-  useEffect(() => {
-    if (!particlesRef.current) return
-
-    // Randomize particle positions
-    const positions = particlesRef.current.geometry.attributes.position
-    const count = positions.count
-
-    for (let i = 0; i < count; i++) {
-      const x = (Math.random() - 0.5) * 10
-      const y = (Math.random() - 0.5) * 10
-      const z = (Math.random() - 0.5) * 10
-
-      positions.setXYZ(i, x, y, z)
+  // Generate positions once using useMemo
+  const positionsArray = useMemo(() => {
+    const array = new Float32Array(500 * 3)
+    for (let i = 0; i < 500; i++) {
+      array[i * 3 + 0] = (Math.random() - 0.5) * 10
+      array[i * 3 + 1] = (Math.random() - 0.5) * 10
+      array[i * 3 + 2] = (Math.random() - 0.5) * 10
     }
-
-    positions.needsUpdate = true
+    return array
   }, [])
 
   useFrame((state) => {
@@ -53,9 +53,20 @@ function FloatingParticles() {
   return (
     <points ref={particlesRef}>
       <bufferGeometry>
-        <bufferAttribute attach="attributes-position" count={500} array={new Float32Array(500 * 3)} itemSize={3}  />
+        <bufferAttribute
+          attach="attributes-position"
+          count={500}
+          array={positionsArray}
+          itemSize={3}
+        />
       </bufferGeometry>
-      <pointsMaterial size={0.05} color="#10b981" sizeAttenuation transparent opacity={0.8} />
+      <pointsMaterial
+        size={0.05}
+        color="#10b981"
+        sizeAttenuation
+        transparent
+        opacity={0.8}
+      />
     </points>
   )
 }
