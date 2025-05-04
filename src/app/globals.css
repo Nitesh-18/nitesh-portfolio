@@ -129,7 +129,8 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: rgba(0, 255, 255, 0.8); /* Light cyan for effect */
+    background-color: rgba(0, 255, 255, 0.8);
+    /* Light cyan for effect */
     pointer-events: none;
     transition: transform 0.1s ease-in-out, width 0.2s, height 0.2s, background-color 0.3s;
     z-index: 9999;
@@ -140,7 +141,8 @@
     transform: scale(1.5) rotate(45deg);
   }
 
-  button:hover .cursor, a:hover .cursor {
+  button:hover .cursor,
+  a:hover .cursor {
     background-color: rgba(255, 0, 0, 0.8);
     width: 30px;
     height: 30px;
@@ -150,6 +152,21 @@
 .html {
   scroll-behavior: smooth;
 }
+
 body {
   cursor: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Opera */
+}
+
+html,
+body {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }

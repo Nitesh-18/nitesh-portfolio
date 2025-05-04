@@ -27,16 +27,21 @@ export default function HeroSection() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild className="bg-emerald-600 hover:bg-emerald-700">
-              <a href="#experience">View My Work</a>
+              <a href="#experience">View Work</a>
             </Button>
 
-            <a href="/Resume.pdf" download>
-              <Button variant="outline" className="border-emerald-600 text-emerald-400 flex items-center gap-2 cursor-pointer">
+            <Button
+              asChild
+              variant="outline"
+              className="border-emerald-600 text-emerald-400 flex items-center gap-2 cursor-pointer"
+            >
+              <a href="/Resume.pdf" download>
                 <FileDown className="w-4 h-4" />
                 Download Resume
-              </Button>
-            </a>
+              </a>
+            </Button>
           </div>
+
         </div>
 
         {/* Scroll Down Indicator */}
