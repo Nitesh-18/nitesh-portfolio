@@ -155,7 +155,7 @@ export default function ContactSection() {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="I'd like to discuss a project..."
+                  placeholder="I&apos;d like to discuss a project..."
                   rows={5}
                   required
                   className="bg-slate-800 border-slate-700"

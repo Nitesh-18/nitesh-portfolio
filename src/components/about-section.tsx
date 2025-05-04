@@ -15,7 +15,7 @@ export default function AboutSection() {
           <div className="order-2 md:order-1">
             <h3 className="text-2xl font-bold mb-4">Software Developer</h3>
             <p className="text-slate-300 mb-6">
-              I&apos;m Nitesh, a passionate Software Developer with hands-on experience in crafting dynamic, scalable web applications. I specialize in React.js, Node.js, and MongoDB, and I've also worked extensively with Next.js, Flask, and modern JavaScript frameworks. My journey in tech began with a deep curiosity for how things work—leading me to build web projects during my early college days. Over time, this passion grew into a mission to build AI-powered solutions that not only look great but solve real-world problems.
+              I&apos;m Nitesh, a passionate Software Developer with hands-on experience in crafting dynamic, scalable web applications. I specialize in React.js, Node.js, and MongoDB, and I&apos;ve also worked extensively with Next.js, Flask, and modern JavaScript frameworks. My journey in tech began with a deep curiosity for how things work—leading me to build web projects during my early college days. Over time, this passion grew into a mission to build AI-powered solutions that not only look great but solve real-world problems.
             </p>
             <p className="text-slate-300 mb-6">
               When I&apos;m not deep in code, I&apos;m probably at the beach, gaming, or lost in an endless scroll of reels. I like keeping things fun, but I&apos;m always curious and open to learning cool new stuff that makes the web even more awesome.
