@@ -1,5 +1,5 @@
 import { Button } from "./ui/button"
-import { Code, Globe, Lightbulb } from "lucide-react"
+import { Code, FileDown, Globe, Lightbulb } from "lucide-react"
 import Image from "next/image"
 
 export default function AboutSection() {
@@ -39,8 +39,12 @@ export default function AboutSection() {
                 <p className="text-sm text-slate-400">All devices covered</p>
               </div>
             </div>
-
-            <Button className="bg-emerald-600 hover:bg-emerald-700">Download Resume</Button>
+            <a href="/Resume.pdf" download>
+              <Button variant="outline" className="bg-emerald-600 hover:bg-emerald-700 flex items-center gap-2 cursor-pointer">
+                <FileDown className="w-4 h-4" />
+                Download Resume
+              </Button>
+            </a>
           </div>
 
           <div className="order-1 md:order-2 flex justify-center">
@@ -56,6 +60,6 @@ export default function AboutSection() {
           </div>
         </div>
       </div>
-    </section>
+    </section >
   )
 }

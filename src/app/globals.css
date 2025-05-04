@@ -119,11 +119,37 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
+  .cursor {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgba(0, 255, 255, 0.8); /* Light cyan for effect */
+    pointer-events: none;
+    transition: transform 0.1s ease-in-out, width 0.2s, height 0.2s, background-color 0.3s;
+    z-index: 9999;
+    will-change: transform, width, height;
+  }
+
+  .cursor.active {
+    transform: scale(1.5) rotate(45deg);
+  }
+
+  button:hover .cursor, a:hover .cursor {
+    background-color: rgba(255, 0, 0, 0.8);
+    width: 30px;
+    height: 30px;
+  }
 }
 
-.html{
+.html {
   scroll-behavior: smooth;
+}
+body {
+  cursor: none;
 }

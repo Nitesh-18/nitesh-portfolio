@@ -6,6 +6,7 @@ import WorkExperienceSection from "@/components/work-section"
 import SkillsSection from "@/components/skills-section"
 import ContactSection from "@/components/contact-section"
 import Footer from "@/components/footer"
+import CustomCursor from "../components/CustomCursor"; // Import custom cursor
 
 export default function Home() {
   return (
