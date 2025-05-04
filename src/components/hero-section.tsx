@@ -2,7 +2,6 @@
 import { Button } from "./ui/button"
 import { ArrowDown, FileDown } from "lucide-react"
 import ThreeBackground from "./three-background"
-import { redirect } from "next/navigation"
 
 export default function HeroSection() {
   const scrollToAbout = () => {
@@ -20,7 +19,7 @@ export default function HeroSection() {
       <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-4">
         <div className="max-w-3xl mx-auto backdrop-blur-sm bg-slate-900/30 p-8 rounded-xl">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            Hi, I'm <span className="text-emerald-400">Nitesh</span>
+            Hi, I&apos;m <span className="text-emerald-400">Nitesh</span>
           </h1>
           <h2 className="text-2xl md:text-3xl text-slate-300 mb-6">Software Developer</h2>
           <p className="text-lg md:text-xl text-slate-400 mb-8 max-w-2xl mx-auto">
