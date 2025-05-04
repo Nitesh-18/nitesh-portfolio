@@ -53,7 +53,7 @@ function FloatingParticles() {
   return (
     <points ref={particlesRef}>
       <bufferGeometry>
-        <bufferAttribute attach="attributes-position" count={500} array={new Float32Array(500 * 3)} itemSize={3} args={[]} />
+        <bufferAttribute attach="attributes-position" count={500} array={new Float32Array(500 * 3)} itemSize={3}  />
       </bufferGeometry>
       <pointsMaterial size={0.05} color="#10b981" sizeAttenuation transparent opacity={0.8} />
     </points>
