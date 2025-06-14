@@ -1,3 +1,5 @@
+// components/VisitorLogger.tsx
+
 'use client'
 import { useEffect } from 'react';
 
@@ -8,7 +10,7 @@ export default function VisitorLogger() {
         const res = await fetch("https://ipapi.co/json/");
         const data = await res.json();
 
-        await fetch("/api/visitor", {
+        const response = await fetch("/api/track", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -21,6 +23,9 @@ export default function VisitorLogger() {
             platform: navigator.platform,
           }),
         });
+
+        const result = await response.json();
+        console.log("Visitor logged:", result);
       } catch (err) {
         console.error("Visitor logging failed:", err);
       }
@@ -31,5 +36,3 @@ export default function VisitorLogger() {
 
   return null;
 }
-// This component logs visitor information to the server when mounted.
-// It fetches the visitor's IP and location data from ipapi.co and sends it to the /api/visitor endpoint.

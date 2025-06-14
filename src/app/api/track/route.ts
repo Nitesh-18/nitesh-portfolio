@@ -1,25 +1,28 @@
+// src/app/api/track/route.ts
+
 import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/lib/db";
 import Visitor from "@/lib/models/Visitor";
 
-export async function GET(req: NextRequest) {
-  const ip =
-    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
-  const userAgent = req.headers.get("user-agent") || "unknown";
+export async function POST(req: NextRequest) {
+  try {
+    const body = await req.json();
 
-  // Optional: Use an external API like ipinfo.io or ipapi.co to fetch geolocation
-  const geoRes = await fetch(`https://ipapi.co/${ip}/json/`);
-  const geo = await geoRes.json();
+    await dbConnect();
 
-  await dbConnect();
-  await Visitor.create({
-    ip,
-    city: geo.city,
-    region: geo.region,
-    country: geo.country_name,
-    device: userAgent,
-    org: geo.org || "unknown",
-  });
+    await Visitor.create({
+      ip: body.ip || "unknown",
+      city: body.city || "unknown",
+      region: body.region || "unknown",
+      country: body.country || "unknown",
+      device: body.userAgent || "unknown",
+      org: body.org || "unknown",
+      time: new Date().toISOString(),
+    });
 
-  return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    console.error("Visitor logging failed on server:", error);
+    return NextResponse.json({ error: "Failed to save visitor" }, { status: 500 });
+  }
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "@/components/CustomCursor"; // Import the CustomCursor component
+import VisitorLogger from "@/components/VistorLogger";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +29,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+         <VisitorLogger />
         <CustomCursor /> {/* Add the custom cursor component here */}
         {children}
       </body>
