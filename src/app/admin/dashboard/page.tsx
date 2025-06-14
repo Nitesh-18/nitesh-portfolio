@@ -54,7 +54,7 @@ export default async function AdminPage({ searchParams }: { searchParams: { page
                 </td>
                 <td className="py-2 px-4">{v.org}</td>
                 <td className="py-2 px-4">
-                  {v.time ? new Date(v.time).toLocaleString() : "N/A"}
+                  {v.time ? new Date(v.time).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }) : "N/A"}
                 </td>
               </tr>
             ))}
