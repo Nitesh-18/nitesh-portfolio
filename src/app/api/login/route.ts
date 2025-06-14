@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
     (await cookies()).set("admin_auth", "true", {
       httpOnly: true,
       path: "/",
-      maxAge: 60 * 60 * 6, // 6 hours
+      maxAge: 60 * 60, // 1 hour
     });
     return NextResponse.json({ success: true });
   }

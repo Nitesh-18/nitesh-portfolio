@@ -13,7 +13,7 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*"],
+  matcher: ["/admin/:path*", "/login"],
 };
 // This middleware checks if the user is logged in by looking for the "admin_auth" cookie.
 // If the user is not logged in and tries to access any admin page, they are redirected to the login page.
