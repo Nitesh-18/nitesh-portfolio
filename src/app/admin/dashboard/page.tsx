@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"; // Add this line
+
 import dbConnect from "@/lib/db";
 import Visitor from "@/lib/models/Visitor";
 
