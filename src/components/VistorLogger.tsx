@@ -24,10 +24,10 @@ export default function VisitorLogger() {
           }),
         });
 
-        const result = await response.json();
-        console.log("Visitor logged:", result);
+        // const result = await response.json();
+        // console.log("Visitor logged:", result);
       } catch (err) {
-        console.error("Visitor logging failed:", err);
+        // console.error("Visitor logging failed:", err);
       }
     };
 
