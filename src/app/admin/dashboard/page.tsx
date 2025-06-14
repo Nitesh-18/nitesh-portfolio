@@ -1,8 +1,14 @@
-export const dynamic = "force-dynamic";
 
 import dbConnect from "@/lib/db";
 import Visitor from "@/lib/models/Visitor";
 import { redirect } from "next/navigation";
+interface Props {
+  searchParams?: {
+    page?: string;
+  };
+}
+
+export const dynamic = "force-dynamic";
 
 export default async function AdminPage({ searchParams }: { searchParams: { page?: string } }) {
   await dbConnect();
