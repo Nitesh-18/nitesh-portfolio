@@ -11,7 +11,7 @@ const experiences = [
   {
     role: "Web Development Intern",
     company: "Vereigen Media",
-    period: "Jan 2025 – Present",
+    period: "Jan 2025 – Apr 2025",
     location: "Pune",
     description:
       "Developed a multilingual Excel-to-HTML converter using Python & Flask for B2B marketing; created WordPress posts, landing pages, and a role-based Task Manager app with admin & user dashboards.",
