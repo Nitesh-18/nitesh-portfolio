@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     canonical: "https://nitesh-portfolio-three.vercel.app",
   },
   openGraph: {
-    title: "Nitesh Ranjankar | Full Stack Developer Portfolio",
+    title: "Nitesh Ranjankar | Software Developer Portfolio",
     description:
       "Explore the portfolio of Nitesh Ranjankar, Full Stack Developer specializing in Next.js, Python, React.js and scalable web apps.",
     url: "https://nitesh-portfolio-three.vercel.app",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nitesh Ranjankar | Full Stack Developer",
+    title: "Nitesh Ranjankar | Software Developer",
     description:
       "Full Stack Developer skilled in Next.js, Three.js, Python, and scalable web apps.",
     creator: "@Nitesh1831", // replace with your handle

@@ -1,23 +1,42 @@
 import Navbar from "@/components/navbar"
 import HeroSection from "@/components/hero-section"
-import AboutSection from "@/components/about-section"
-import ProjectsSection from "@/components/projects-section"
-import WorkExperienceSection from "@/components/work-section"
-import SkillsSection from "@/components/skills-section"
-import ContactSection from "@/components/contact-section"
+import dynamic from "next/dynamic"
 import Footer from "@/components/footer"
-import CustomCursor from "../components/CustomCursor"; // Import custom cursor
+import LazyLoad from "@/components/LazyLoad"
+
+// Import dynamically to keep bundle small
+const AboutSection = dynamic(() => import("@/components/about-section"))
+const ProjectsSection = dynamic(() => import("@/components/projects-section"))
+const WorkExperienceSection = dynamic(() => import("@/components/work-section"))
+const SkillsSection = dynamic(() => import("@/components/skills-section"))
+const ContactSection = dynamic(() => import("@/components/contact-section"))
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-slate-950 text-white">
       <Navbar />
       <HeroSection />
-      <AboutSection />
-      <ProjectsSection />
-      <WorkExperienceSection />
-      <SkillsSection />
-      <ContactSection />
+
+      <LazyLoad>
+        <AboutSection />
+      </LazyLoad>
+
+      <LazyLoad>
+        <ProjectsSection />
+      </LazyLoad>
+
+      <LazyLoad>
+        <WorkExperienceSection />
+      </LazyLoad>
+
+      <LazyLoad>
+        <SkillsSection />
+      </LazyLoad>
+
+      <LazyLoad>
+        <ContactSection />
+      </LazyLoad>
+
       <Footer />
     </main>
   )
