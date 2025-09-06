@@ -5,7 +5,8 @@ module.exports = {
   changefreq: "weekly",
   priority: 0.7,
   sitemapSize: 7000,
-  exclude: ["/server-sitemap.xml"],
+  // Exclude private/admin routes
+  exclude: ["/server-sitemap.xml", "/admin/*"],
   alternateRefs: [
     {
       href: "https://nitesh-portfolio-three.vercel.app",
