@@ -27,7 +27,7 @@ const WorkExperienceSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Work Experiences</h2>
           <div className="w-20 h-1 bg-emerald-500 mx-auto mb-8"></div>
           <p className="text-slate-300 max-w-2xl mx-auto">
-            A timeline of professional roles and student leadership initiatives I’ve been part of.
+            A timeline of professional roles and internship experiences I’ve been part of.
           </p>
         </div>
 
@@ -48,7 +48,14 @@ const WorkExperienceSection = () => {
               </p>
               <p className="text-slate-400 text-sm mt-1">{exp.period}</p>
               {exp.location && <p className="text-slate-500 text-sm">{exp.location}</p>}
-              <p className="text-slate-300 mt-4 text-sm leading-relaxed">{exp.description}</p>
+              <ul className="text-slate-300 mt-4 text-sm leading-relaxed list-disc list-inside space-y-2">
+                {exp.description
+                  .split("•")
+                  .map((point, index) =>
+                    point.trim() ? <li key={index}>{point.trim()}</li> : null
+                  )}
+              </ul>
+
             </div>
           ))}
         </div>
