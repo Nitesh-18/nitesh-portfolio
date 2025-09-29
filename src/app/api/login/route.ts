@@ -1,18 +1,20 @@
-import { NextRequest, NextResponse } from "next/server";
-import { cookies } from "next/headers";
+import { NextResponse } from "next/server";
 
-export async function POST(req: NextRequest) {
-  const { password } = await req.json();
+export async function POST(request: Request) {
+  const { password } = await request.json();
   const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 
   if (password === ADMIN_PASSWORD) {
-    (await cookies()).set("admin_auth", "true", {
-      httpOnly: true,
-      path: "/",
-      maxAge: 60 * 60, // 1 hour
-    });
-    return NextResponse.json({ success: true });
+    // Set cookie for 30 minutes
+    return NextResponse.json(
+      { success: true },
+      {
+        status: 200,
+        headers: {
+          "Set-Cookie": `admin_auth=1; Path=/; Max-Age=1800; HttpOnly; SameSite=Strict; Secure`,
+        },
+      }
+    );
   }
-
-  return NextResponse.json({ success: false }, { status: 401 });
+  return NextResponse.json({ error: "Invalid password" }, { status: 401 });
 }

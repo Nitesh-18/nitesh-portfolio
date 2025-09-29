@@ -3,29 +3,49 @@
 import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function VisitorTable({ totalCount }: { totalCount: number }) {
+export default function VisitorTable({ totalCount: initialTotalCount }: { totalCount: number }) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const page = parseInt(searchParams.get("page") || "1", 10);
   const limit = 10;
-  const totalPages = Math.ceil(totalCount / limit);
 
   const [visitors, setVisitors] = useState<any[]>([]);
+  const [totalCount, setTotalCount] = useState(initialTotalCount);
 
   useEffect(() => {
     const fetchVisitors = async () => {
-      const res = await fetch(`/api/visitors?page=${page}`);
+      const res = await fetch(`/api/visitors?page=${page}&limit=${limit}`);
       const data = await res.json();
-      setVisitors(data);
+      setVisitors(data.visitors);
+      setTotalCount(data.totalCount);
     };
     fetchVisitors();
   }, [page]);
+
+  const totalPages = Math.max(1, Math.ceil(totalCount / limit));
 
   const changePage = (pg: number) => {
     const params = new URLSearchParams(Array.from(searchParams.entries()));
     params.set("page", pg.toString());
     router.push(`?${params.toString()}`);
   };
+
+  // Helper to generate advanced pagination
+  function getPagination(current: number, total: number) {
+    const pages: (number | string)[] = [];
+    if (total <= 7) {
+      for (let i = 1; i <= total; i++) pages.push(i);
+      return pages;
+    }
+    pages.push(1, 2);
+    if (current > 4) pages.push("...");
+    for (let i = Math.max(3, current - 1); i <= Math.min(total - 2, current + 1); i++) {
+      if (i > 2 && i < total - 1) pages.push(i);
+    }
+    if (current < total - 3) pages.push("...");
+    pages.push(total - 1, total);
+    return pages;
+  }
 
   return (
     <>
@@ -75,20 +95,40 @@ export default function VisitorTable({ totalCount }: { totalCount: number }) {
       </div>
 
       {/* Pagination Controls */}
-      <div className="mt-6 flex justify-center items-center gap-4">
-        {Array.from({ length: totalPages }, (_, i) => i + 1).map((pg) => (
-          <button
-            key={pg}
-            onClick={() => changePage(pg)}
-            className={`px-4 py-2 rounded-md text-sm font-medium ${
-              pg === page
-                ? "bg-blue-500 text-white"
-                : "bg-gray-700 text-blue-300 hover:bg-gray-600"
-            }`}
-          >
-            {pg}
-          </button>
-        ))}
+      <div className="mt-6 flex justify-center items-center gap-2 flex-wrap">
+        <button
+          onClick={() => changePage(Math.max(1, page - 1))}
+          disabled={page === 1}
+          className="px-3 py-2 rounded-md bg-gray-700 text-blue-300 hover:bg-gray-600 disabled:opacity-50"
+        >
+          Prev
+        </button>
+        {getPagination(page, totalPages).map((pg, idx) =>
+          typeof pg === "number" ? (
+            <button
+              key={pg}
+              onClick={() => changePage(pg)}
+              className={`px-3 py-2 rounded-md text-sm font-medium ${
+                pg === page
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-700 text-blue-300 hover:bg-gray-600"
+              }`}
+            >
+              {pg}
+            </button>
+          ) : (
+            <span key={`ellipsis-${idx}`} className="px-2 text-gray-400 select-none">
+              ...
+            </span>
+          )
+        )}
+        <button
+          onClick={() => changePage(Math.min(totalPages, page + 1))}
+          disabled={page === totalPages}
+          className="px-3 py-2 rounded-md bg-gray-700 text-blue-300 hover:bg-gray-600 disabled:opacity-50"
+        >
+          Next
+        </button>
       </div>
     </>
   );
