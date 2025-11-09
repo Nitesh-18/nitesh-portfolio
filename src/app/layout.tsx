@@ -16,21 +16,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nitesh Ranjankar | Full Stack Developer Portfolio",
-  description: "Portfolio of Nitesh Ranjankar, Full Stack Web Developer skilled in Next.js, Python, React.js and scalable applications.",
+  title: "Nitesh Ranjankar | Software Developer Portfolio",
+  description: "Portfolio of Nitesh Ranjankar, Software Web Developer skilled in Next.js, Python, React.js and scalable applications.",
   keywords: [
     "Nitesh Ranjankar",
     "Nitesh Ranjankar Portfolio",
     "Nitesh Ranjankar Vereigen Media",
-    "Full Stack Developer Portfolio",
-    "Full Stack Developer in JSPM",
-    "Full Stack Developer in JSPM College",
-    "Full Stack Developer in JSPM College Pune",
-    "Full Stack Developer in JSPM College Pune India",
+    "Software Developer Portfolio",
+    "Software Developer in JSPM",
+    "Software Developer in JSPM College",
+    "Software Developer in JSPM College Pune",
+    "Software Developer in JSPM College Pune India",
     "Next.js Portfolio",
     "Three.js Portfolio",
     "Software Developer in Pune",
     "Three.js Projects",
+    "Three.js Portfolio",
     "Python Developer",
     "Flask Developer",
     "React Developer",
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Nitesh Ranjankar | Software Developer Portfolio",
     description:
-      "Explore the portfolio of Nitesh Ranjankar, Full Stack Developer specializing in Next.js, Python, React.js and scalable web apps.",
+      "Explore the portfolio of Nitesh Ranjankar, Software Developer specializing in Next.js, Python, React.js and scalable web apps.",
     url: "https://www.nitesh-ranjankar.me/",
     siteName: "Nitesh Portfolio",
     images: [
@@ -61,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Nitesh Ranjankar | Software Developer",
     description:
-      "Full Stack Developer skilled in Next.js, Three.js, Python, and scalable web apps.",
+      "Software Developer skilled in Next.js, Three.js, Python, and scalable web apps.",
     creator: "@Nitesh1831", // replace with your handle
     images: ["/thumbnail.png"],
   },
@@ -100,7 +101,7 @@ export default function RootLayout({
               "https://www.linkedin.com/in/nitesh-ranjankar",
               "https://twitter.com/Nitesh1831",
             ],
-            jobTitle: "Full Stack Developer",
+            jobTitle: "Software Developer",
             worksFor: {
               "@type": "Vereigen Media",
               name: "Full Time & Internship Experience",
