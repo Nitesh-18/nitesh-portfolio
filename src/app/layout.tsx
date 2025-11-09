@@ -36,15 +36,15 @@ export const metadata: Metadata = {
     "React Developer",
   ],
   authors: [{ name: "Nitesh Ranjankar" }],
-  metadataBase: new URL("https://nitesh-portfolio-three.vercel.app"), // your portfolio URL
+  metadataBase: new URL("https://www.nitesh-ranjankar.me/"), // your portfolio URL
   alternates: {
-    canonical: "https://nitesh-portfolio-three.vercel.app",
+    canonical: "https://www.nitesh-ranjankar.me/",
   },
   openGraph: {
     title: "Nitesh Ranjankar | Software Developer Portfolio",
     description:
       "Explore the portfolio of Nitesh Ranjankar, Full Stack Developer specializing in Next.js, Python, React.js and scalable web apps.",
-    url: "https://nitesh-portfolio-three.vercel.app",
+    url: "https://www.nitesh-ranjankar.me/",
     siteName: "Nitesh Portfolio",
     images: [
       {
@@ -94,10 +94,10 @@ export default function RootLayout({
             "@context": "https://schema.org",
             "@type": "Person",
             name: "Nitesh Ranjankar",
-            url: "https://nitesh-portfolio-three.vercel.app",
+            url: "https://www.nitesh-ranjankar.me/",
             sameAs: [
               "https://github.com/Nitesh-18",
-              "https://www.linkedin.com/in/nitesh-r-a15518243",
+              "https://www.linkedin.com/in/nitesh-ranjankar",
               "https://twitter.com/Nitesh1831",
             ],
             jobTitle: "Full Stack Developer",

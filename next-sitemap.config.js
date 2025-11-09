@@ -1,19 +1,19 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://nitesh-portfolio-three.vercel.app",
+  siteUrl: "https://www.nitesh-ranjankar.me/",
   generateRobotsTxt: true,
   changefreq: "weekly",
-  priority: 0.7,
+  priority: 1.0,
   sitemapSize: 7000,
   // Exclude private/admin routes
   exclude: ["/server-sitemap.xml", "/admin/*"],
   alternateRefs: [
     {
-      href: "https://nitesh-portfolio-three.vercel.app",
+      href: "https://www.nitesh-ranjankar.me/",
       hreflang: "en",
     },
     {
-      href: "https://nitesh-portfolio-three.vercel.app",
+      href: "https://www.nitesh-ranjankar.me/",
       hreflang: "x-default",
     },
   ],

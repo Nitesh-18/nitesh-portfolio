@@ -15,10 +15,10 @@ export default function AboutSection() {
           <div className="order-2 md:order-1">
             <h3 className="text-2xl font-bold mb-4">Software Developer</h3>
             <p className="text-slate-300 mb-6">
-              I&apos;m Nitesh, a passionate Software Developer with hands-on experience in crafting dynamic, scalable web applications. I specialize in React.js, Node.js, and MongoDB, and I&apos;ve also worked extensively with Next.js, Flask, and modern JavaScript frameworks. My journey in tech began with a deep curiosity for how things work—leading me to build web projects during my early college days. Over time, this passion grew into a mission to build AI-powered solutions that not only look great but solve real-world problems.
+              I&apos;m Nitesh, an Software Developer focused on building reliable and scalable web applications. I work with modern stacks including Next.js, React, Node.js, Python and MongoDB, and I aim to deliver solutions that balance performance, maintainability, and a strong user experience.
             </p>
             <p className="text-slate-300 mb-6">
-              When I&apos;m not deep in code, I&apos;m probably at the beach, gaming, or lost in an endless scroll of reels. I like keeping things fun, but I&apos;m always curious and open to learning cool new stuff that makes the web even more awesome.
+              Outside of engineering, I value clear communication and practical problem solving. I regularly explore ways to apply automation and AI to real-world workflows, and I enjoy learning new tools that improve product quality and developer productivity.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
@@ -39,10 +39,11 @@ export default function AboutSection() {
                 <p className="text-sm text-slate-400">All devices covered</p>
               </div>
             </div>
-            <a href="/Resume.pdf" download>
+
+            <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" className="bg-emerald-600 hover:bg-emerald-700 flex items-center gap-2 cursor-pointer">
                 <FileDown className="w-4 h-4" />
-                Download Resume
+                View Resume
               </Button>
             </a>
           </div>
@@ -51,7 +52,7 @@ export default function AboutSection() {
             <div className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-emerald-500">
               <Image
                 src="/Avatar.png"
-                alt=" Developer"
+                alt="Nitesh — Developer"
                 width={360}
                 height={360}
                 className="object-cover"

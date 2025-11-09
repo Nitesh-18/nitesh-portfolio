@@ -52,9 +52,9 @@ export default function HeroSection() {
               variant="outline"
               className="border-emerald-600 text-emerald-400 flex items-center gap-2 cursor-pointer"
             >
-              <a href="/Resume.pdf" download>
+              <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer">
                 <FileDown className="w-4 h-4" />
-                Download Resume
+                View Resume
               </a>
             </Button>
           </div>

@@ -17,7 +17,7 @@ export default function ContactSection() {
   })
   const socialLinks = [
     { name: "github", url: "https://github.com/Nitesh-18", icon: Github },
-    { name: "linkedin", url: "https://www.linkedin.com/in/nitesh-r-a15518243", icon: Linkedin },
+    { name: "linkedin", url: "https://www.linkedin.com/in/nitesh-ranjankar", icon: Linkedin },
     { name: "twitter", url: "https://x.com/Nitesh1831", icon: Twitter },
   ]
 
